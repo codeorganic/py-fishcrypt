@@ -1306,7 +1306,7 @@ class XChatCrypt:
         ## get the Keyobject if available or get a new one
         key = self.find_key(id,create=SecretKey(None,protectmode=self.config['DEFAULTPROTECT'],cbcmode=self.config['DEFAULTCBC']))
         ## set the key 
-        key.key = newkey
+        key.key = "%s" % ( newkey )
         key.keyname = id
         ## put it in the key dict
         self.__KeyMap[id] = key

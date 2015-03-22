@@ -780,8 +780,8 @@ class XChatCrypt:
                     print "Passwords don't match"
                     self.status['CHKPW'] = None
                     return xchat.EAT_ALL
-                if len(word_eol[2]) < 8 or len(word_eol[2]) > 56:
-                    print "Passwords must be between 8 and 56 chars"
+                if len(word_eol[2]) < 4 or len(word_eol[2]) > 56:
+                    print "Passwords must be between 4 and 56 chars"
                     self.status['CHKPW'] = None
                     return xchat.EAT_ALL
                 self.status['DBPASSWD'] = word_eol[2]
@@ -796,8 +796,8 @@ class XChatCrypt:
 
         if word[1] == "fishcrypt_passload":
             if len(word) > 2:
-                if len(word_eol[2]) < 8 or len(word_eol[2]) > 56:
-                    print "Password not between 8 and 56 chars"
+                if len(word_eol[2]) < 4 or len(word_eol[2]) > 56:
+                    print "Password not between 4 and 56 chars"
                 else:
                     self.status['DBPASSWD'] = word_eol[2]
                     self.loadDB()
@@ -1300,8 +1300,8 @@ class XChatCrypt:
         ## else the current channel/nick is taken as target and the key is para 1
         else:
             newkey = word[1]
-        if len(newkey) < 8 or len(newkey) > 56:
-            print "Key must be between 8 and 56 chars"
+        if len(newkey) < 4 or len(newkey) > 56:
+            print "Key must be between 4 and 56 chars"
             return xchat.EAT_ALL
         ## get the Keyobject if available or get a new one
         key = self.find_key(id,create=SecretKey(None,protectmode=self.config['DEFAULTPROTECT'],cbcmode=self.config['DEFAULTCBC']))
